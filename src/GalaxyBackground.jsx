@@ -7,27 +7,28 @@ export default function GalaxyBackground() {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
 
-        // Make canvas background transparent
-        ctx.fillStyle = "transparent";
-
+        // Resize canvas
         const resize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         };
-
         resize();
         window.addEventListener("resize", resize);
 
-        let particles = [];
-        const particleCount = 120;
+        // Dynamic settings based on screen size
+        const isSmallScreen = () => window.innerWidth < 900;
+        const particleCount = isSmallScreen() ? 40 : 120;
+        const linkDistance = isSmallScreen() ? 60 : 120;
+        const particleSizeMultiplier = isSmallScreen() ? 0.6 : 1;
 
+        // Particle class
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
                 this.y = Math.random() * canvas.height;
                 this.vx = (Math.random() - 0.5) * 0.6;
                 this.vy = (Math.random() - 0.5) * 0.6;
-                this.radius = Math.random() * 2 + 1;
+                this.radius = (Math.random() * 2 + 1) * particleSizeMultiplier;
             }
 
             update() {
@@ -46,10 +47,13 @@ export default function GalaxyBackground() {
             }
         }
 
+        // Create particles
+        let particles = [];
         for (let i = 0; i < particleCount; i++) {
             particles.push(new Particle());
         }
 
+        // Animate particles
         const animate = () => {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -57,15 +61,15 @@ export default function GalaxyBackground() {
                 p.update();
                 p.draw();
 
-                // Line linking
+                // Draw connecting lines
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = p.x - particles[j].x;
                     const dy = p.y - particles[j].y;
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
-                    if (dist < 120) {
+                    if (dist < linkDistance) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0,0,0,${1 - dist / 120})`;
+                        ctx.strokeStyle = `rgba(0,0,0,${1 - dist / linkDistance})`;
                         ctx.lineWidth = 0.3;
                         ctx.moveTo(p.x, p.y);
                         ctx.lineTo(particles[j].x, particles[j].y);
@@ -92,7 +96,7 @@ export default function GalaxyBackground() {
                 zIndex: -1,
                 width: "100vw",
                 height: "100vh",
-                background: "transparent",   // <— Transparent now
+                background: "transparent",
                 pointerEvents: "none",
             }}
         />
