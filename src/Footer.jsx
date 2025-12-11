@@ -30,7 +30,7 @@ export default function Footer() {
                 <p>omalemcmails@gmail.com</p>
                 <p> +234 906 171 2509</p>
                 <div className="footersocials">
-                    <a href="https://github.com/OmaleMichael" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+                    <a href="https://github.com/frontenddevmichael" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
                     <a href="https://www.linkedin.com/in/michael-omale-b63406354//" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
                     <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
                 </div>

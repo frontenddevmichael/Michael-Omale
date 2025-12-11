@@ -6,7 +6,7 @@ export default function Contact() {
         { name: "Email", icon: <AiOutlineMail size={24} />, link: "mailto:omalemcmails@gmail.com" },
         { name: "WhatsApp", icon: <FaWhatsapp size={24} />, link: "https://wa.me/2349061712509" },
         { name: "LinkedIn", icon: <AiOutlineLinkedin size={24} />, link: "https://www.linkedin.com/in/michael-omale-b63406354/" },
-        { name: "GitHub", icon: <AiOutlineGithub size={24} />, link: "https://github.com/OmaleMichael" },
+        { name: "GitHub", icon: <AiOutlineGithub size={24} />, link: "https://github.com/frontenddevmichael" },
     ];
 
     return (
