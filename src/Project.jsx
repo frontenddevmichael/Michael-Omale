@@ -3,6 +3,8 @@ import Trust from "./assets/Trust.png"
 import Echo from "./assets/Echo.png"
 import JudgeHub from "./assets/JudgeHub.png"
 import Cline from "./assets/Cline.png"
+import Tastehaus from "./assets/TasteHaus.png"
+import OpenRole from "./assets/OpenRole.png"
 const projects = [
     {
         title: "Trust Okoduwa Portfolio Page",
@@ -40,7 +42,22 @@ const projects = [
         tech:["React","Tailwind" , "JS"],
         img:JudgeHub,
         link:"https://judging-platform.vercel.app/"
+    },
+    {
+        title:"TasteHaus",
+        description:"A modern, visually appealing landing page for a gourmet dessert and catering brand. The project showcases clean UI/UX design, responsive layout, and brand-focused presentation, emphasizing the company’s offerings, menu highlights, and service details. Built as a React/Next.js single-page application, the site features interactive elements, smooth animations, and a professional layout suitable for attracting clients and boosting brand credibility.",
+        tech:["React", "CSS", "Js"],
+        img: Tastehaus,
+        link:"https://taste-haus-services.vercel.app/"
+    },
+    {
+        title:"OpenRole",
+        description:"A comprehensive web platform designed to connect students with curated internships from verified organizations. The site focuses on ease of use, professional presentation, and real-time tracking, making it seamless for students to browse, apply, and monitor internship applications. Built with React and modern CSS, it demonstrates responsive layouts, interactive UI components, and animated counters for engagement.",
+        tech :["React", "Tailwind", "Js" ],
+        img:OpenRole,
+        link:"https://openrole-connect.vercel.app/"
     }
+
 ];
 
 export default function Project() {
